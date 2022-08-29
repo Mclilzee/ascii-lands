@@ -6,6 +6,7 @@ package ascii.lands;
 public class App {
 
     public static void main(String[] args) {
-        System.out.println("Hello world");
+        Donkey donkey = new Donkey();
+        donkey.say("hello");
     }
 }
