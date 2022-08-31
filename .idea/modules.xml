@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ascii-lands.iml" filepath="$PROJECT_DIR$/.idea/modules/ascii-lands.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ascii-lands.app.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ascii-lands.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ascii-lands.app.main.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ascii-lands.app.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/app/ascii-lands.app.test.iml" filepath="$PROJECT_DIR$/.idea/modules/app/ascii-lands.app.test.iml" />
+    </modules>
+  </component>
+</project>

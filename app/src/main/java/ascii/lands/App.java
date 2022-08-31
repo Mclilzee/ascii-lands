@@ -3,10 +3,27 @@
  */
 package ascii.lands;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.util.Scanner;
+
 public class App {
 
     public static void main(String[] args) {
-        Cow cow = new Cow();
-        cow.say("hello");
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Input the file path:");
+        File file = new File(scanner.nextLine());
+
+        printFileContent(file);
+    }
+
+    private static void printFileContent(File file) {
+        try (Scanner scanner = new Scanner(file)) {
+            while (scanner.hasNextLine()) {
+                System.out.println(scanner.nextLine());
+            }
+        } catch (FileNotFoundException e) {
+            System.out.println("File not found!");
+        }
     }
 }
