@@ -5,7 +5,7 @@ package ascii.lands;
 
 import java.io.File;
 import java.io.FileNotFoundException;
-import java.util.Scanner;
+import java.util.*;
 
 public class App {
 
@@ -13,17 +13,62 @@ public class App {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Input the file path:");
         File file = new File(scanner.nextLine());
+        List<String> content = fillFileContent(file);
 
-        printFileContent(file);
+        printFileContent(content);
     }
 
-    private static void printFileContent(File file) {
+    private static void printFileContent(List<String> content) {
+        for (String line : content) {
+            System.out.println(line);
+        }
+    }
+
+    private static void printMirroredContent(List<String> content) {
+        for (String line : content) {
+            System.out.println(line + " | " + line);
+        }
+    }
+
+    private static List<String> fillFileContent(File file) {
+        List<String> content = new ArrayList<>();
         try (Scanner scanner = new Scanner(file)) {
             while (scanner.hasNextLine()) {
-                System.out.println(scanner.nextLine());
+                content.add(scanner.nextLine());
             }
         } catch (FileNotFoundException e) {
             System.out.println("File not found!");
         }
+
+        return formatFileContent(content);
+    }
+
+    private static List<String> formatFileContent(List<String> content) {
+        List<String> copyContent = new ArrayList<>(content);
+        int longestStringLength = getLongestString(content);
+
+        for (int i = 0; i < copyContent.size(); i++) {
+            String line = copyContent.get(i);
+            int difference = longestStringLength - line.length();
+            copyContent.set(i, line + " ".repeat(difference));
+        }
+
+        return copyContent;
+    }
+
+    private static int getLongestString(List<String> content) {
+        if (content.size() == 0) {
+            return 0;
+        }
+
+        int longest = content.get(0).length();
+
+        for (String line : content) {
+            if (line.length() > longest) {
+                longest = line.length();
+            }
+        }
+
+        return longest;
     }
 }
