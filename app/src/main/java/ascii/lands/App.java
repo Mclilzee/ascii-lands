@@ -76,10 +76,21 @@ public class App {
         StringBuilder reversed = new StringBuilder();
 
         for (int i = string.length() - 1; i >= 0; i--) {
-            reversed.append(string.charAt(i));
+            reversed.append(getMirroredChar(string.charAt(i)));
         }
 
         return reversed.toString();
     }
 
+    private static char getMirroredChar(char character) {
+        return switch (character) {
+            case '[' -> ']';
+            case ']' -> '[';
+            case '(' -> ')';
+            case ')' -> '(';
+            case '/' -> '\\';
+            case '\\' -> '/';
+            default -> character;
+        };
+    }
 }
