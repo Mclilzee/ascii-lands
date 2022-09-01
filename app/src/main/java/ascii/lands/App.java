@@ -15,7 +15,7 @@ public class App {
         File file = new File(scanner.nextLine());
         List<String> content = fillFileContent(file);
 
-        printFileContent(content);
+        printMirroredContent(content);
     }
 
     private static void printFileContent(List<String> content) {
@@ -26,7 +26,7 @@ public class App {
 
     private static void printMirroredContent(List<String> content) {
         for (String line : content) {
-            System.out.println(line + " | " + line);
+            System.out.println(line + " | " + reversedString(line));
         }
     }
 
@@ -71,4 +71,15 @@ public class App {
 
         return longest;
     }
+
+    private static String reversedString(String string) {
+        StringBuilder reversed = new StringBuilder();
+
+        for (int i = string.length() - 1; i >= 0; i--) {
+            reversed.append(string.charAt(i));
+        }
+
+        return reversed.toString();
+    }
+
 }
