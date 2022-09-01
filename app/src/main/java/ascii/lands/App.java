@@ -90,6 +90,8 @@ public class App {
             case ')' -> '(';
             case '/' -> '\\';
             case '\\' -> '/';
+            case '>' -> '<';
+            case '<' -> '>';
             default -> character;
         };
     }
